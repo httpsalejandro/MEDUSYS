@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MEDUSYS — Órganos y prótesis inteligentes</title>
+  <meta name="description" content="Biotecnología entre lo biológico y lo sintético. Órganos y prótesis inteligentes con conectividad, funcionalidad y estética." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#hero">MEDUSYS</a>
+    <nav class="nav">
+      <a href="#contexto">Contexto</a>
+      <a href="#valor">Propuesta</a>
+      <a href="#casos">Casos</a>
+      <a href="#corazon">Corazón</a>
+      <a href="#prototipo">Prototipo</a>
+      <a href="#marca">Marca</a>
+      <a href="#contacto" class="cta">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <!-- Malla neuronal/Jelly suave -->
+        <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <radialGradient id="jelly" cx="50%" cy="50%" r="60%">
+              <stop offset="0%" stop-color="var(--lilac)"/>
+              <stop offset="50%" stop-color="var(--primary)"/>
+              <stop offset="100%" stop-color="var(--bg)"/>
+            </radialGradient>
+          </defs>
+          <rect width="1200" height="600" fill="url(#jelly)"></rect>
+        </svg>
+      </div>
+      <div class="hero-content">
+        <h1>tocar el cielo es posible</h1>
+        <p>Órganos y prótesis inteligentes entre lo biológico y lo sintético.</p>
+        <div class="hero-actions">
+          <a href="#valor" class="btn primary">Explorar tecnología</a>
+          <a href="#casos" class="btn ghost">Ver historias</a>
+        </div>
+      </div>
+    </section>
+    <section class="neuron-section">
+  <div class="neuron-nav">
+    <canvas id="neuronCanvas"></canvas>
+
+    <div class="node" data-target="contexto" style="--x:20%; --y:60%"></div>
+    <div class="node" data-target="valor" style="--x:40%; --y:35%"></div>
+    <div class="node" data-target="casos" style="--x:68%; --y:48%"></div>
+    <div class="node" data-target="corazon" style="--x:55%; --y:75%"></div>
+    <div class="node" data-target="prototipo" style="--x:82%; --y:58%"></div>
+  </div>
+</section>
+
+    <section id="contexto" class="section">
+      <div class="container">
+        <h2>Contexto</h2>
+        <p>Corporación mexicana de biotecnología dedicada a crear órganos y prótesis inteligentes. Respuesta a una realidad post-2040, donde la vida exige nuevas formas de cuidado y reconstrucción.</p>
+        <div class="grid two">
+          <div class="card glass">
+            <h3>Justificación</h3>
+            <p>Después del colapso sanitario y el aumento de personas con pérdida funcional, nace MEDUSYS para devolver vida, función y dignidad.</p>
+          </div>
+          <div class="card glass">
+            <h3>Principio</h3>
+            <p>Entre el límite de lo biológico y lo sintético: conectamos cuerpo, mente y tecnología con precisión y humanidad.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="valor" class="section">
+      <div class="container">
+        <h2>Propuesta de valor</h2>
+        <ul class="value-list">
+          <li><strong>Conectividad:</strong> Ecosistema de sensores, datos y alertas que se adaptan a cada usuario.</li>
+          <li><strong>Funcionalidad:</strong> Control de alta precisión con respuesta a impulsos neuronales.</li>
+          <li><strong>Estética:</strong> Diseño fluido que respira con el cuerpo y el movimiento.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="casos" class="section">
+      <div class="container">
+        <h2>Historias de vida</h2>
+        <div class="grid three">
+          <article class="card story">
+            <h3>Valeria Fanning — 19</h3>
+            <p><em>“Pensé que jamás volvería a danzar... pero MEDUSYS me devolvió mis alas.”</em></p>
+            <p>Pierna biónica de alta sensibilidad, sincronizada con su sistema nervioso.</p>
+          </article>
+          <article class="card story">
+            <h3>Guadalupe del Rey — 33</h3>
+            <p><em>“Vi morir a mis pacientes esperando un trasplante. Con MEDUSYS, eso cambió.”</em></p>
+            <p>Órganos que se adaptan con el mismo ADN del portador.</p>
+          </article>
+          <article class="card story">
+            <h3>Fermín Gutiérrez — 63</h3>
+            <p>Un brazo inteligente, adaptable y conectado, capaz de responder a impulsos neuronales.</p>
+            <p>Precisión, fuerza y sensibilidad en una sola prótesis.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="corazon" class="section feature">
+      <div class="container">
+        <h2>Corazón artificial</h2>
+        <div class="feature-grid">
+          <div class="feature-visual" aria-hidden="true">
+            <div class="pulse"></div>
+          </div>
+          <ul class="feature-list">
+            <li><strong>Mayor control:</strong> Modos de actividad con respuesta autónoma.</li>
+            <li><strong>Inteligencia:</strong> IA para ajuste fino y predicción de eventos.</li>
+            <li><strong>Dispensión de medicamento:</strong> Dosificación segura y personalizada.</li>
+            <li><strong>Iluminación dinámica:</strong> Color y brillo según estado.</li>
+            <li><strong>Alertas de salud:</strong> Notificaciones proactivas.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="prototipo" class="section">
+      <div class="container">
+        <h2>Prototipo</h2>
+        <div class="proto card glass">
+          <div class="proto-top">
+            <div class="metric"><span>8.000</span> h</div>
+            <div class="metric"><span>35°</span> Temp</div>
+            <div class="metric"><span>10:00</span> AM</div>
+          </div>
+          <div class="proto-bottom">
+            <div class="weather">
+              <strong>Saltillo</strong> 08° — Despejado
+            </div>
+            <div class="status">Modo actividad: estable</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="marca" class="section">
+      <div class="container">
+        <h2>Identidad de marca</h2>
+        <div class="grid two">
+          <div class="card">
+            <h3>Misión</h3>
+            <p>Definir los límites de la vida humana.</p>
+            <h3>Visión</h3>
+            <p>Establecer el nuevo estándar de la evolución humana asistida.</p>
+          </div>
+          <div class="card">
+            <h3>Paleta</h3>
+            <ul class="palette">
+              <li><span class="swatch" style="--sw:#ffffff"></span>#FFFFFF</li>
+              <li><span class="swatch" style="--sw:#93B9E0"></span>#93B9E0</li>
+              <li><span class="swatch" style="--sw:#2E3B59"></span>#2E3B59</li>
+              <li><span class="swatch" style="--sw:#000000"></span>#000000</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section">
+      <div class="container">
+        <h2>Contacto</h2>
+        <form class="contact-form" action="#" method="post">
+          <label>Nombre
+            <input type="text" name="nombre" required />
+          </label>
+          <label>Email
+            <input type="email" name="email" required />
+          </label>
+          <label>Mensaje
+            <textarea name="mensaje" rows="4" required></textarea>
+          </label>
+          <button type="submit" class="btn primary">Enviar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>MEDUSYS © 2050 — Órganos y prótesis inteligentes</small>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
