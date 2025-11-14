@@ -11,190 +11,287 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <a class="logo" href="#hero">MEDUSYS</a>
-    <nav class="nav">
-      <a href="#contexto">Contexto</a>
-      <a href="#valor">Propuesta</a>
-      <a href="#casos">Casos</a>
-      <a href="#corazon">Corazón</a>
-      <a href="#prototipo">Prototipo</a>
-      <a href="#marca">Marca</a>
-      <a href="#contacto" class="cta">Contacto</a>
-    </nav>
-  </header>
+  <!-- Audio Ambiental -->
+  <div class="audio-control">
+    <button id="audioToggle" class="audio-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 3.75v16.5m-4.5-13.5h9a2.25 2.25 0 0 1 0 4.5h-9a2.25 2.25 0 0 1 0-4.5Z"/>
+      </svg>
+    </button>
+    <audio id="ambientAudio" loop>
+      <source src="https://assets.mixkit.co/active_storage/sfx/258/258-preview.mp3" type="audio/mpeg">
+    </audio>
+  </div>
 
-  <main>
-    <section id="hero" class="hero">
-      <div class="hero-bg" aria-hidden="true">
-        <!-- Malla neuronal/Jelly suave -->
-        <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <radialGradient id="jelly" cx="50%" cy="50%" r="60%">
-              <stop offset="0%" stop-color="var(--lilac)"/>
-              <stop offset="50%" stop-color="var(--primary)"/>
-              <stop offset="100%" stop-color="var(--bg)"/>
-            </radialGradient>
-          </defs>
-          <rect width="1200" height="600" fill="url(#jelly)"></rect>
-        </svg>
-      </div>
-      <div class="hero-content">
+  <!-- Navegación Principal Neuronal -->
+  <main class="neuron-main">
+    <canvas id="neuronCanvas"></canvas>
+    
+    <!-- Nodos de Navegación -->
+    <div class="neuron-node main-node" data-section="hero" style="--x:50%; --y:50%">
+      <div class="node-core"></div>
+      <div class="node-label">MEDUSYS</div>
+      <div class="node-subtitle">Inicio</div>
+    </div>
+
+    <div class="neuron-node glitch-node" data-section="contexto" style="--x:25%; --y:30%">
+      <div class="node-core"></div>
+      <div class="node-label">Contexto 2040</div>
+      <div class="node-subtitle">Orígenes</div>
+    </div>
+
+    <div class="neuron-node" data-section="tecnologia" style="--x:75%; --y:30%">
+      <div class="node-core"></div>
+      <div class="node-label">Tecnología</div>
+      <div class="node-subtitle">Innovación</div>
+    </div>
+
+    <div class="neuron-node" data-section="historias" style="--x:20%; --y:70%">
+      <div class="node-core"></div>
+      <div class="node-label">Historias</div>
+      <div class="node-subtitle">Testimonios</div>
+    </div>
+
+    <div class="neuron-node" data-section="corazon" style="--x:50%; --y:80%">
+      <div class="node-core"></div>
+      <div class="node-label">Corazón 3D</div>
+      <div class="node-subtitle">Interactivo</div>
+    </div>
+
+    <div class="neuron-node" data-section="scanner" style="--x:80%; --y:70%">
+      <div class="node-core"></div>
+      <div class="node-label">Scanner</div>
+      <div class="node-subtitle">Compatibilidad</div>
+    </div>
+
+    <div class="neuron-node" data-section="marca" style="--x:65%; --y:55%">
+      <div class="node-core"></div>
+      <div class="node-label">Misión</div>
+      <div class="node-subtitle">Visión</div>
+    </div>
+
+    <!-- Secciones de Contenido -->
+    <div class="content-section active" id="hero-content">
+      <div class="section-background"></div>
+      <div class="content-wrapper">
         <h1>tocar el cielo es posible</h1>
         <p>Órganos y prótesis inteligentes entre lo biológico y lo sintético.</p>
         <div class="hero-actions">
-          <a href="#valor" class="btn primary">Explorar tecnología</a>
-          <a href="#casos" class="btn ghost">Ver historias</a>
+          <button class="btn primary" data-node="tecnologia">Explorar tecnología</button>
+          <button class="btn ghost" data-node="historias">Ver historias</button>
         </div>
       </div>
-    </section>
-    <section class="neuron-section">
-  <div class="neuron-nav">
-    <canvas id="neuronCanvas"></canvas>
-
-    <div class="node" data-target="contexto" style="--x:20%; --y:60%"></div>
-    <div class="node" data-target="valor" style="--x:40%; --y:35%"></div>
-    <div class="node" data-target="casos" style="--x:68%; --y:48%"></div>
-    <div class="node" data-target="corazon" style="--x:55%; --y:75%"></div>
-    <div class="node" data-target="prototipo" style="--x:82%; --y:58%"></div>
-  </div>
-</section>
-
-    <section id="contexto" class="section">
-      <div class="container">
-        <h2>Contexto</h2>
-        <p>Corporación mexicana de biotecnología dedicada a crear órganos y prótesis inteligentes. Respuesta a una realidad post-2040, donde la vida exige nuevas formas de cuidado y reconstrucción.</p>
-        <div class="grid two">
-          <div class="card glass">
-            <h3>Justificación</h3>
-            <p>Después del colapso sanitario y el aumento de personas con pérdida funcional, nace MEDUSYS para devolver vida, función y dignidad.</p>
-          </div>
-          <div class="card glass">
-            <h3>Principio</h3>
-            <p>Entre el límite de lo biológico y lo sintético: conectamos cuerpo, mente y tecnología con precisión y humanidad.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="valor" class="section">
-      <div class="container">
-        <h2>Propuesta de valor</h2>
-        <ul class="value-list">
-          <li><strong>Conectividad:</strong> Ecosistema de sensores, datos y alertas que se adaptan a cada usuario.</li>
-          <li><strong>Funcionalidad:</strong> Control de alta precisión con respuesta a impulsos neuronales.</li>
-          <li><strong>Estética:</strong> Diseño fluido que respira con el cuerpo y el movimiento.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="casos" class="section">
-      <div class="container">
-        <h2>Historias de vida</h2>
-        <div class="grid three">
-          <article class="card story">
-            <h3>Valeria Fanning — 19</h3>
-            <p><em>“Pensé que jamás volvería a danzar... pero MEDUSYS me devolvió mis alas.”</em></p>
-            <p>Pierna biónica de alta sensibilidad, sincronizada con su sistema nervioso.</p>
-          </article>
-          <article class="card story">
-            <h3>Guadalupe del Rey — 33</h3>
-            <p><em>“Vi morir a mis pacientes esperando un trasplante. Con MEDUSYS, eso cambió.”</em></p>
-            <p>Órganos que se adaptan con el mismo ADN del portador.</p>
-          </article>
-          <article class="card story">
-            <h3>Fermín Gutiérrez — 63</h3>
-            <p>Un brazo inteligente, adaptable y conectado, capaz de responder a impulsos neuronales.</p>
-            <p>Precisión, fuerza y sensibilidad en una sola prótesis.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="corazon" class="section feature">
-      <div class="container">
-        <h2>Corazón artificial</h2>
-        <div class="feature-grid">
-          <div class="feature-visual" aria-hidden="true">
-            <div class="pulse"></div>
-          </div>
-          <ul class="feature-list">
-            <li><strong>Mayor control:</strong> Modos de actividad con respuesta autónoma.</li>
-            <li><strong>Inteligencia:</strong> IA para ajuste fino y predicción de eventos.</li>
-            <li><strong>Dispensión de medicamento:</strong> Dosificación segura y personalizada.</li>
-            <li><strong>Iluminación dinámica:</strong> Color y brillo según estado.</li>
-            <li><strong>Alertas de salud:</strong> Notificaciones proactivas.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="prototipo" class="section">
-      <div class="container">
-        <h2>Prototipo</h2>
-        <div class="proto card glass">
-          <div class="proto-top">
-            <div class="metric"><span>8.000</span> h</div>
-            <div class="metric"><span>35°</span> Temp</div>
-            <div class="metric"><span>10:00</span> AM</div>
-          </div>
-          <div class="proto-bottom">
-            <div class="weather">
-              <strong>Saltillo</strong> 08° — Despejado
-            </div>
-            <div class="status">Modo actividad: estable</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="marca" class="section">
-      <div class="container">
-        <h2>Identidad de marca</h2>
-        <div class="grid two">
-          <div class="card">
-            <h3>Misión</h3>
-            <p>Definir los límites de la vida humana.</p>
-            <h3>Visión</h3>
-            <p>Establecer el nuevo estándar de la evolución humana asistida.</p>
-          </div>
-          <div class="card">
-            <h3>Paleta</h3>
-            <ul class="palette">
-              <li><span class="swatch" style="--sw:#ffffff"></span>#FFFFFF</li>
-              <li><span class="swatch" style="--sw:#93B9E0"></span>#93B9E0</li>
-              <li><span class="swatch" style="--sw:#2E3B59"></span>#2E3B59</li>
-              <li><span class="swatch" style="--sw:#000000"></span>#000000</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contacto" class="section">
-      <div class="container">
-        <h2>Contacto</h2>
-        <form class="contact-form" action="#" method="post">
-          <label>Nombre
-            <input type="text" name="nombre" required />
-          </label>
-          <label>Email
-            <input type="email" name="email" required />
-          </label>
-          <label>Mensaje
-            <textarea name="mensaje" rows="4" required></textarea>
-          </label>
-          <button type="submit" class="btn primary">Enviar</button>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <small>MEDUSYS © 2050 — Órganos y prótesis inteligentes</small>
     </div>
-  </footer>
+
+    <!-- CONTEXTO 2040 CON GLITCH EFFECT -->
+    <div class="content-section" id="contexto-content">
+      <div class="section-background war-bg"></div>
+      <div class="content-wrapper">
+        <h2 class="glitch-text" data-text="CONTEXTO 2040">CONTEXTO 2040</h2>
+        <p class="fade-in">Corporación mexicana de biotecnología dedicada a crear órganos y prótesis inteligentes. Respuesta a una realidad post-2040, donde la vida exige nuevas formas de cuidado y reconstrucción.</p>
+        
+        <div class="story-progress">
+          <div class="story-item active" data-year="2040">
+            <div class="year-marker">2040</div>
+            <h3>Colapso Sanitario Global</h3>
+            <p>Pérdida masiva de órganos tras la guerra biotecnológica entre Rusia y EE.UU.</p>
+            <div class="war-overlay"></div>
+          </div>
+          <div class="story-item" data-year="2042">
+            <div class="year-marker">2042</div>
+            <h3>Necesidad Médica Crítica</h3>
+            <p>Millones requieren reconstrucción orgánica inmediata</p>
+          </div>
+          <div class="story-item" data-year="2045">
+            <div class="year-marker">2045</div>
+            <h3>Fundación MEDUSYS</h3>
+            <p>Nace la respuesta mexicana a la crisis global</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECNOLOGÍA MEJORADA -->
+    <div class="content-section" id="tecnologia-content">
+      <div class="section-background"></div>
+      <div class="content-wrapper">
+        <h2>Tecnología Avanzada</h2>
+        
+        <div class="tech-grid">
+          <div class="tech-item connectivity-item">
+            <div class="tech-icon">📡</div>
+            <h3>Conectividad</h3>
+            <p>Ecosistema de sensores, datos y alertas que se adaptan a cada usuario.</p>
+            <div class="tech-overlay"></div>
+          </div>
+          <div class="tech-item functionality-item">
+            <div class="tech-icon">🦾</div>
+            <h3>Funcionalidad</h3>
+            <p>Control de alta precisión con respuesta a impulsos neuronales.</p>
+            <div class="precision-arm"></div>
+          </div>
+          <div class="tech-item aesthetic-item">
+            <div class="tech-icon">💎</div>
+            <h3>Estética</h3>
+            <p>Diseño fluido que respira con el cuerpo y el movimiento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HISTORIAS CON EFECTOS DE REVEAL -->
+    <div class="content-section" id="historias-content">
+      <div class="section-background"></div>
+      <div class="content-wrapper">
+        <h2>Historias de Vida</h2>
+        
+        <div class="stories-grid">
+          <div class="story-card valeria-card" data-person="valeria">
+            <div class="story-image"></div>
+            <div class="story-content">
+              <h3>Valeria Fanning — 19</h3>
+              <p><em>"Pensé que jamás volvería a danzar... pero MEDUSYS me devolvió mis alas."</em></p>
+              <p>Pierna biónica de alta sensibilidad, sincronizada con su sistema nervioso.</p>
+            </div>
+            <div class="prosthesis-glow" data-limb="leg"></div>
+          </div>
+          
+          <div class="story-card guadalupe-card" data-person="guadalupe">
+            <div class="story-image"></div>
+            <div class="story-content">
+              <h3>Guadalupe del Rey — 33</h3>
+              <p><em>"Vi morir a mis pacientes esperando un trasplante. Con MEDUSYS, eso cambió."</em></p>
+              <p>Órganos que se adaptan con el mismo ADN del portador.</p>
+            </div>
+            <div class="heartbeat-glow" data-organ="heart"></div>
+          </div>
+          
+          <div class="story-card fermin-card" data-person="fermin">
+            <div class="story-image"></div>
+            <div class="story-content">
+              <h3>Fermín Gutiérrez — 63</h3>
+              <p><em>"Mi brazo responde como si fuera real, pero con fuerza sobrehumana."</em></p>
+              <p>Brazo inteligente, adaptable y conectado, capaz de responder a impulsos neuronales.</p>
+            </div>
+            <div class="scan-effect" data-limb="arm"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CORAZÓN 3D MEJORADO -->
+    <div class="content-section" id="corazon-content">
+      <div class="section-background"></div>
+      <div class="content-wrapper">
+        <h2>Corazón Artificial Inteligente</h2>
+        
+        <div class="tech-grid">
+          <div class="tech-model">
+            <div class="heart-3d">
+              <div class="heart-part" data-part="camara-izquierda" data-info="camara"></div>
+              <div class="heart-part" data-part="tejido-externo" data-info="tejido"></div>
+              <div class="heart-part" data-part="sistema-flujo" data-info="flujo"></div>
+              <div class="heart-part" data-part="membrana" data-info="membrana"></div>
+            </div>
+            <div class="model-controls">
+              <button class="control-btn" data-action="rotate">⟳ Rotar</button>
+              <button class="control-btn" data-action="zoom-in">+ Zoom</button>
+              <button class="control-btn" data-action="reset">↺ Reset</button>
+            </div>
+          </div>
+          
+          <div class="tech-info">
+            <div class="info-panel active" data-info="overview">
+              <h3>Visión General</h3>
+              <p>Corazón sintético con inteligencia adaptativa y biocompatibilidad total. Diseñado para integrarse perfectamente con el sistema biológico del huésped.</p>
+            </div>
+            <div class="info-panel" data-info="camara">
+              <h3>Cámara Biónica Izquierda</h3>
+              <p>Recreación biomimética con tejido adaptativo para bombeo asistido. Sistema de propulsión magnética que simula el pulso cardiaco natural con precisión milimétrica.</p>
+            </div>
+            <div class="info-panel" data-info="tejido">
+              <h3>Matriz de Bio-Fusión</h3>
+              <p>Material sintético que imita la textura y función celular, garantizando la compatibilidad total con el ADN del portador. Regeneración autónoma del tejido.</p>
+            </div>
+            <div class="info-panel" data-info="flujo">
+              <h3>Sistema de Flujo Neural</h3>
+              <p>Conexión directa con el sistema nervioso para respuesta autónoma. Control de alta precisión con retroalimentación en tiempo real.</p>
+            </div>
+            <div class="info-panel" data-info="membrana">
+              <h3>Membrana Bioadaptativa</h3>
+              <p>Superficie inteligente que se integra perfectamente con los tejidos del huésped. Permite el intercambio de nutrientes y oxígeno de manera natural.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCANNER MÉDICO -->
+    <div class="content-section" id="scanner-content">
+      <div class="section-background"></div>
+      <div class="content-wrapper">
+        <h2>Simulador de Compatibilidad</h2>
+        
+        <div class="scanner-container">
+          <div class="body-outline">
+            <div class="organ-marker" data-organ="heart"></div>
+            <div class="organ-marker" data-organ="arm"></div>
+            <div class="organ-marker" data-organ="leg"></div>
+            <div class="organ-marker" data-organ="eye"></div>
+          </div>
+          <button class="btn primary" id="startScan">Iniciar Escaneo</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MARCA Y CRÉDITOS -->
+    <div class="content-section" id="marca-content">
+      <div class="section-background"></div>
+      <div class="content-wrapper">
+        <h2>Definiendo el Futuro de la Vida Humana</h2>
+        
+        <div class="mission-vision">
+          <div class="mission-card">
+            <h3>Misión</h3>
+            <p class="mission-text">Definir los límites de la vida humana.</p>
+          </div>
+          <div class="vision-card">
+            <h3>Visión</h3>
+            <p class="vision-text">Establecer el nuevo estándar de la evolución humana asistida.</p>
+          </div>
+        </div>
+
+        <div class="credits-grid">
+          <div class="credit-node" data-person="lucia">
+            <div class="credit-avatar"></div>
+            <h4>Lucia Rivera</h4>
+            <p>Directora de Innovación</p>
+          </div>
+          <div class="credit-node" data-person="paola">
+            <div class="credit-avatar"></div>
+            <h4>Paola Gomez</h4>
+            <p>Líder de Biotecnología</p>
+          </div>
+          <div class="credit-node" data-person="alejandro">
+            <div class="credit-avatar"></div>
+            <h4>Alejandro Alfaro</h4>
+            <p>Director Médico</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón de Regreso -->
+    <button class="back-btn" id="backButton">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19 12H5m0 0l6-6m-6 6l6 6"/>
+      </svg>
+      Volver a la red
+    </button>
+
+    <!-- Efecto Glitch Overlay -->
+    <div class="glitch-overlay"></div>
+  </main>
 
   <script src="app.js"></script>
 </body>
