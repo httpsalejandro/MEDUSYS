@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MEDUSYS — Órganos y prótesis inteligentes</title>
+  <title>MEDUSYS — Órganos y prótesis inteligentes | 2050</title>
   <meta name="description" content="Biotecnología entre lo biológico y lo sintético. Órganos y prótesis inteligentes con conectividad, funcionalidad y estética." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- Audio Ambiental -->
   <div class="audio-control">
-    <button id="audioToggle" class="audio-btn">
+    <button id="audioToggle" class="audio-btn" aria-label="Controlar audio ambiental">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 3.75v16.5m-4.5-13.5h9a2.25 2.25 0 0 1 0 4.5h-9a2.25 2.25 0 0 1 0-4.5Z"/>
       </svg>
@@ -34,7 +34,7 @@
       <div class="node-subtitle">Inicio</div>
     </div>
 
-    <div class="neuron-node glitch-node" data-section="contexto" style="--x:25%; --y:30%">
+    <div class="neuron-node" data-section="contexto" style="--x:25%; --y:30%">
       <div class="node-core"></div>
       <div class="node-label">Contexto 2040</div>
       <div class="node-subtitle">Orígenes</div>
@@ -64,74 +64,67 @@
       <div class="node-subtitle">Compatibilidad</div>
     </div>
 
-    <div class="neuron-node" data-section="marca" style="--x:65%; --y:55%">
-      <div class="node-core"></div>
-      <div class="node-label">Misión</div>
-      <div class="node-subtitle">Visión</div>
-    </div>
-
     <!-- Secciones de Contenido -->
     <div class="content-section active" id="hero-content">
       <div class="section-background"></div>
       <div class="content-wrapper">
-        <h1>Tocar el cielo es posible.</h1>
-        <p>Órganos y prótesis inteligentes entre lo biológico y lo sintético.</p>
+        <h1 class="hero-title">Tocar el cielo es posible</h1>
+        <p class="hero-subtitle">Órganos y prótesis inteligentes entre lo biológico y lo sintético.</p>
         <div class="hero-actions">
-          <button class="btn primary" data-node="tecnologia">Explorar tecnología</button>
-          <button class="btn ghost" data-node="historias">Ver historias</button>
+          <button class="btn primary" data-node="tecnologia">Explorar Tecnología</button>
+          <button class="btn ghost" data-node="historias">Ver Historias</button>
         </div>
       </div>
     </div>
 
-    <!-- CONTEXTO 2040 CON GLITCH EFFECT -->
     <div class="content-section" id="contexto-content">
-      <div class="section-background war-bg"></div>
+      <div class="section-background"></div>
       <div class="content-wrapper">
-        <h2 class="glitch-text" data-text="CONTEXTO 2040">CONTEXTO 2040</h2>
-        <p class="fade-in">Corporación mexicana de biotecnología dedicada a crear órganos y prótesis inteligentes. Respuesta a una realidad post-2040, donde la vida exige nuevas formas de cuidado y reconstrucción.</p>
+        <h2>Contexto 2040</h2>
+        <p class="section-intro">Corporación mexicana de biotecnología dedicada a crear órganos y prótesis inteligentes. Respuesta a una realidad post-2040, donde la vida exige nuevas formas de cuidado y reconstrucción.</p>
         
-        <div class="story-progress">
-          <div class="story-item active" data-year="2040">
-            <div class="year-marker">2040</div>
-            <h3>Colapso Sanitario Global</h3>
-            <p>Pérdida masiva de órganos tras la guerra biotecnológica entre Rusia y EE.UU.</p>
-            <div class="war-overlay"></div>
+        <div class="timeline">
+          <div class="timeline-item active" data-year="2040">
+            <div class="timeline-marker"></div>
+            <h3>2040 - Colapso Sanitario</h3>
+            <p>Pérdida masiva de órganos tras la guerra biotecnológica</p>
           </div>
-          <div class="story-item" data-year="2042">
-            <div class="year-marker">2042</div>
-            <h3>Necesidad Médica Crítica</h3>
+          <div class="timeline-item" data-year="2042">
+            <div class="timeline-marker"></div>
+            <h3>2042 - Necesidad Médica</h3>
             <p>Millones requieren reconstrucción orgánica inmediata</p>
           </div>
-          <div class="story-item" data-year="2045">
-            <div class="year-marker">2045</div>
-            <h3>Fundación MEDUSYS</h3>
+          <div class="timeline-item" data-year="2045">
+            <div class="timeline-marker"></div>
+            <h3>2045 - Fundación MEDUSYS</h3>
             <p>Nace la respuesta mexicana a la crisis global</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- TECNOLOGÍA MEJORADA -->
     <div class="content-section" id="tecnologia-content">
       <div class="section-background"></div>
       <div class="content-wrapper">
         <h2>Tecnología Avanzada</h2>
+        <p class="section-intro">Líderes en biotecnología y evolución</p>
+
+        <div class="value-proposition">
+          <div class="value-pill">CONECTIVIDAD</div>
+          <div class="value-pill">FUNCIONALIDAD</div>
+          <div class="value-pill">ESTÉTICA</div>
+        </div>
         
         <div class="tech-grid">
-          <div class="tech-item connectivity-item">
-            
+          <div class="tech-item connectivity">
             <h3>Conectividad</h3>
             <p>Ecosistema de sensores, datos y alertas que se adaptan a cada usuario.</p>
-            <div class="tech-overlay"></div>
           </div>
-          <div class="tech-item functionality-item">
-           
+          <div class="tech-item functionality">
             <h3>Funcionalidad</h3>
             <p>Control de alta precisión con respuesta a impulsos neuronales.</p>
-            <div class="precision-arm"></div>
           </div>
-          <div class="tech-item aesthetic-item">
-          
+          <div class="tech-item aesthetic">
             <h3>Estética</h3>
             <p>Diseño fluido que respira con el cuerpo y el movimiento.</p>
           </div>
@@ -139,59 +132,45 @@
       </div>
     </div>
 
-    <!-- HISTORIAS CON EFECTOS DE REVEAL -->
     <div class="content-section" id="historias-content">
       <div class="section-background"></div>
       <div class="content-wrapper">
         <h2>Historias de Vida</h2>
         
         <div class="stories-grid">
-          <div class="story-card valeria-card" data-person="valeria">
-            <div class="story-image"></div>
-            <div class="story-content">
-              <h3>Valeria Fanning — 19</h3>
-              <p><em>"Pensé que jamás volvería a danzar... pero MEDUSYS me devolvió mis alas."</em></p>
-              <p>Pierna biónica de alta sensibilidad, sincronizada con su sistema nervioso.</p>
-            </div>
-            <div class="prosthesis-glow" data-limb="leg"></div>
+          <div class="story-card" data-person="valeria">
+            <h3>Valeria Fanning — 19 años</h3>
+            <p class="story-role">Bailarina</p>
+            <blockquote>"Pensé que jamás volvería a danzar... pero MEDUSYS me devolvió mis alas."</blockquote>
+            <p>Pierna biónica de alta sensibilidad, sincronizada con su sistema nervioso.</p>
           </div>
-          
-          <div class="story-card guadalupe-card" data-person="guadalupe">
-            <div class="story-image"></div>
-            <div class="story-content">
-              <h3>Guadalupe del Rey — 33</h3>
-              <p><em>"Vi morir a mis pacientes esperando un trasplante. Con MEDUSYS, eso cambió."</em></p>
-              <p>Órganos que se adaptan con el mismo ADN del portador.</p>
-            </div>
-            <div class="heartbeat-glow" data-organ="heart"></div>
+          <div class="story-card" data-person="guadalupe">
+            <h3>Guadalupe del Rey — 33 años</h3>
+            <p class="story-role">Cardióloga</p>
+            <blockquote>"Vi morir a mis pacientes esperando un trasplante. Con MEDUSYS, eso cambió."</blockquote>
+            <p>Órganos que se adaptan con el mismo ADN del portador.</p>
           </div>
-          
-          <div class="story-card fermin-card" data-person="fermin">
-            <div class="story-image"></div>
-            <div class="story-content">
-              <h3>Fermín Gutiérrez — 63</h3>
-              <p><em>"Mi brazo responde como si fuera real, pero con fuerza sobrehumana."</em></p>
-              <p>Brazo inteligente, adaptable y conectado, capaz de responder a impulsos neuronales.</p>
-            </div>
-            <div class="scan-effect" data-limb="arm"></div>
+          <div class="story-card" data-person="fermin">
+            <h3>Fermín Gutierrez — 63 años</h3>
+            <p class="story-role">Trabajador de Obra</p>
+            <blockquote>"Perdí la posibilidad de solventar a mi familia, MEDUSYS me reconectó con la vida."</blockquote>
+            <p>Brazo inteligente, adaptable y conectado, capaz de responder a impulsos neuronales.</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- CORAZÓN 3D MEJORADO -->
     <div class="content-section" id="corazon-content">
       <div class="section-background"></div>
       <div class="content-wrapper">
         <h2>Corazón Artificial Inteligente</h2>
         
-        <div class="tech-grid">
-          <div class="tech-model">
+        <div class="heart-section">
+          <div class="heart-model-container">
             <div class="heart-3d">
-              <div class="heart-part" data-part="camara-izquierda" data-info="camara"></div>
-              <div class="heart-part" data-part="tejido-externo" data-info="tejido"></div>
+              <div class="heart-part" data-part="camara-izquierda" data-info="ventriculo"></div>
+              <div class="heart-part" data-part="tejido-externo" data-info="exterior"></div>
               <div class="heart-part" data-part="sistema-flujo" data-info="flujo"></div>
-              <div class="heart-part" data-part="membrana" data-info="membrana"></div>
             </div>
             <div class="model-controls">
               <button class="control-btn" data-action="rotate">⟳ Rotar</button>
@@ -200,65 +179,51 @@
             </div>
           </div>
           
-          <div class="tech-info">
-            <div class="info-panel active" data-info="overview">
+          <div class="heart-info">
+            <div class="info-panel active" data-info="general">
               <h3>Visión General</h3>
-              <p>Corazón sintético con inteligencia adaptativa y biocompatibilidad total. Diseñado para integrarse perfectamente con el sistema biológico del huésped.</p>
+              <p>Corazón sintético con inteligencia adaptativa y biocompatibilidad total</p>
+              <ul>
+                <li>Mayor control y precisión</li>
+                <li>Inteligencia Artificial integrada</li>
+                <li>Dispersión automática de medicamentos</li>
+                <li>Sistema de alertas de salud</li>
+                <li>Iluminación dinámica según modo de uso</li>
+              </ul>
             </div>
-            <div class="info-panel" data-info="camara">
-              <h3>Cámara Biónica Izquierda</h3>
-              <p>Recreación biomimética con tejido adaptativo para bombeo asistido. Sistema de propulsión magnética que simula el pulso cardiaco natural con precisión milimétrica.</p>
+            <div class="info-panel" data-info="ventriculo">
+              <h3>Cámara Izquierda</h3>
+              <p>Sistema de bombeo principal con sensores de presión integrados</p>
             </div>
-            <div class="info-panel" data-info="tejido">
-              <h3>Matriz de Bio-Fusión</h3>
-              <p>Material sintético que imita la textura y función celular, garantizando la compatibilidad total con el ADN del portador. Regeneración autónoma del tejido.</p>
+            <div class="info-panel" data-info="exterior">
+              <h3>Tejido Externo</h3>
+              <p>Material biocompatible que se integra perfectamente con el cuerpo</p>
             </div>
             <div class="info-panel" data-info="flujo">
-              <h3>Sistema de Flujo Neural</h3>
-              <p>Conexión directa con el sistema nervioso para respuesta autónoma. Control de alta precisión con retroalimentación en tiempo real.</p>
-            </div>
-            <div class="info-panel" data-info="membrana">
-              <h3>Membrana Bioadaptativa</h3>
-              <p>Superficie inteligente que se integra perfectamente con los tejidos del huésped. Permite el intercambio de nutrientes y oxígeno de manera natural.</p>
+              <h3>Sistema de Flujo</h3>
+              <p>Control inteligente del flujo sanguíneo con ajuste automático</p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-
-    <!-- MARCA Y CRÉDITOS -->
-    <div class="content-section" id="marca-content">
+    <div class="content-section" id="scanner-content">
       <div class="section-background"></div>
       <div class="content-wrapper">
-        <h2>Definiendo el Futuro de la Vida Humana</h2>
+        <h2>Simulador de Compatibilidad</h2>
+        <p class="section-intro">Escanea tu perfil biológico para encontrar la solución perfecta</p>
         
-        <div class="mission-vision">
-          <div class="mission-card">
-            <h3>Misión</h3>
-            <p class="mission-text">Definir los límites de la vida humana.</p>
+        <div class="scanner-container">
+          <div class="body-outline">
+            <div class="organ-marker" data-organ="heart" title="Corazón"></div>
+            <div class="organ-marker" data-organ="arm" title="Brazo"></div>
+            <div class="organ-marker" data-organ="leg" title="Pierna"></div>
+            <div class="scan-progress"></div>
           </div>
-          <div class="vision-card">
-            <h3>Visión</h3>
-            <p class="vision-text">Establecer el nuevo estándar de la evolución humana asistida.</p>
-          </div>
-        </div>
-
-        <div class="credits-grid">
-          <div class="credit-node" data-person="lucia">
-            <div class="credit-avatar"></div>
-            <h4>Lucia Rivera</h4>
-            <p>Directora de Innovación</p>
-          </div>
-          <div class="credit-node" data-person="paola">
-            <div class="credit-avatar"></div>
-            <h4>Paola Gomez</h4>
-            <p>Líder de Biotecnología</p>
-          </div>
-          <div class="credit-node" data-person="alejandro">
-            <div class="credit-avatar"></div>
-            <h4>Alejandro Alfaro</h4>
-            <p>Director Médico</p>
+          <div class="scanner-controls">
+            <button class="btn primary" id="startScan">Iniciar Escaneo</button>
+            <div class="scan-results" id="scanResults"></div>
           </div>
         </div>
       </div>
@@ -272,7 +237,7 @@
       Volver a la red
     </button>
 
-    <!-- Efecto Glitch Overlay -->
+    <!-- Efecto Glitch -->
     <div class="glitch-overlay"></div>
   </main>
 
