@@ -44,8 +44,8 @@ introTL.to(".logo-pulse", { opacity: 1, duration: 1 })
         document.getElementById("intro").style.display = "none";
         new NeuronNavigation();
     } 
-})
-.to("#mainContent", { opacity: 1, duration: 0.8 }, "-=0.3");
+});
+
 class NeuronNavigation {
     constructor() {
         this.currentSection = 'hero';
@@ -54,14 +54,15 @@ class NeuronNavigation {
         this.heartScale = 1;
         this.connections = [];
         this.pulsePositions = new Map();
-        this.connectionIntensity = 0.8; // Intensidad base muy alta
-        this.pulseSize = 6; // Tamaño del pulso aumentado
+        this.connectionIntensity = 0.8;
+        this.pulseSize = 6;
         this.init();
     }
 
     init() {
         this.setupCanvas();
         this.setupNodes();
+        this.setupAudio();
         this.setupBackButton();
         this.setup3DModel();
         this.setupStoryInteractions();
@@ -93,7 +94,6 @@ class NeuronNavigation {
         
         const nodes = Array.from(this.nodes);
         
-        // Crear conexiones entre todos los nodos (red completa)
         for (let i = 0; i < nodes.length; i++) {
             for (let j = i + 1; j < nodes.length; j++) {
                 const node1 = nodes[i];
@@ -109,10 +109,9 @@ class NeuronNavigation {
                 
                 const distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
                 
-                // Conectar todos los nodos sin importar la distancia
                 const connection = {
                     x1, y1, x2, y2, distance,
-                    pulse: Math.random() * distance // Posición inicial aleatoria del pulso
+                    pulse: Math.random() * distance
                 };
                 this.connections.push(connection);
                 this.pulsePositions.set(connection, connection.pulse);
@@ -140,7 +139,6 @@ class NeuronNavigation {
             });
         });
 
-        // Recalcular conexiones cuando los nodos se muevan
         const observer = new MutationObserver(() => {
             setTimeout(() => this.calculateConnections(), 100);
         });
@@ -187,7 +185,6 @@ class NeuronNavigation {
             }
         });
 
-        // Recalcular conexiones después de la transición
         setTimeout(() => this.calculateConnections(), 500);
         this.playNavigationSound();
     }
@@ -304,17 +301,13 @@ class NeuronNavigation {
     }
 
     deactivatePersonEffects() {
-        // Restaurar todas las conexiones a su estado normal
         this.connections.forEach(conn => {
             conn.highlighted = false;
         });
     }
 
     highlightConnections(targetSection) {
-        // Resaltar conexiones relacionadas con la sección específica
         this.connections.forEach(conn => {
-            // Aquí podrías implementar una lógica para resaltar conexiones específicas
-            // Por ahora, resaltamos todas para demostración
             conn.highlighted = true;
         });
     }
@@ -457,7 +450,7 @@ class NeuronNavigation {
             if (section.id === 'hero-content') {
                 setTimeout(() => {
                     section.classList.add('active');
-                    this.calculateConnections(); // Recalcular conexiones al volver
+                    this.calculateConnections();
                 }, 300);
             }
         });
@@ -523,16 +516,12 @@ class NeuronNavigation {
     }
 
     drawNeuronalConnections() {
-        // Limpiar canvas
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         
-        // Configuración para líneas más visibles
         this.ctx.lineCap = 'round';
         this.ctx.shadowBlur = 15;
 
-        // Dibujar conexiones principales MUY VISIBLES
         this.connections.forEach(connection => {
-            // Línea base MUY GRUESA y brillante
             if (connection.highlighted) {
                 this.ctx.strokeStyle = 'rgba(196, 162, 252, 0.9)';
                 this.ctx.lineWidth = 6;
@@ -543,13 +532,11 @@ class NeuronNavigation {
                 this.ctx.shadowColor = 'rgba(147, 185, 224, 0.6)';
             }
             
-            // Línea principal
             this.ctx.beginPath();
             this.ctx.moveTo(connection.x1, connection.y1);
             this.ctx.lineTo(connection.x2, connection.y2);
             this.ctx.stroke();
 
-            // Pulsos MUY GRANDES y brillantes
             const pulseSpeed = 0.004;
             let currentPulse = this.pulsePositions.get(connection) || 0;
             currentPulse = (currentPulse + pulseSpeed * connection.distance) % connection.distance;
@@ -558,27 +545,22 @@ class NeuronNavigation {
             const pulseX = connection.x1 + (connection.x2 - connection.x1) * (currentPulse / connection.distance);
             const pulseY = connection.y1 + (connection.y2 - connection.y1) * (currentPulse / connection.distance);
 
-            // Efecto de pulso TRIPLE para máxima visibilidad
             if (connection.highlighted) {
-                // Capa exterior - gran resplandor
                 this.ctx.fillStyle = 'rgba(196, 162, 252, 0.4)';
                 this.ctx.beginPath();
                 this.ctx.arc(pulseX, pulseY, 12, 0, Math.PI * 2);
                 this.ctx.fill();
 
-                // Capa media
                 this.ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
                 this.ctx.beginPath();
                 this.ctx.arc(pulseX, pulseY, 8, 0, Math.PI * 2);
                 this.ctx.fill();
 
-                // Núcleo
                 this.ctx.fillStyle = 'rgba(255, 255, 255, 1)';
                 this.ctx.beginPath();
                 this.ctx.arc(pulseX, pulseY, 4, 0, Math.PI * 2);
                 this.ctx.fill();
             } else {
-                // Pulso normal pero muy visible
                 this.ctx.fillStyle = 'rgba(147, 185, 224, 0.5)';
                 this.ctx.beginPath();
                 this.ctx.arc(pulseX, pulseY, 10, 0, Math.PI * 2);
@@ -605,11 +587,6 @@ class NeuronNavigation {
     }
 }
 
-// Inicializar la aplicación cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-    new NeuronNavigation();
-});
-
 // Agregar estilos CSS dinámicos para animaciones
 const dynamicStyles = `
     @keyframes neuronPulse {
@@ -625,4 +602,4 @@ const dynamicStyles = `
 
 const styleSheet = document.createElement('style');
 styleSheet.textContent = dynamicStyles;
-document.head.appendChild(styleSheet);s
+document.head.appendChild(styleSheet);

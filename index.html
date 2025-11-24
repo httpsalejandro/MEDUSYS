@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
   
@@ -23,6 +23,18 @@
 <audio id="transitionSound" preload="auto">
     <source src="swish.wav" type="audio/wav">
 </audio>
+
+  <!-- Audio Ambiental -->
+  <div class="audio-control">
+    <button id="audioToggle" class="audio-btn" aria-label="Controlar audio ambiental">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 3.75v16.5m-4.5-13.5h9a2.25 2.25 0 0 1 0 4.5h-9a2.25 2.25 0 0 1 0-4.5Z"/>
+      </svg>
+    </button>
+    <audio id="ambientAudio" loop>
+      <source src="ambiente.wav" type="audio/mpeg">
+    </audio>
+  </div>
 
   <!-- Navegación Principal Neuronal -->
   <main class="neuron-main">
@@ -69,11 +81,13 @@
     <div class="content-section active" id="hero-content">
       <div class="section-background"></div>
       <div class="content-wrapper">
-        <h1 class="hero-title">Tocar el cielo es posible</h1>
-        <p class="hero-subtitle">Órganos y prótesis inteligentes entre lo biológico y lo sintético.</p>
-        <div class="hero-actions">
-          <button class="btn primary" data-node="tecnologia">Explorar Tecnología</button>
-          <button class="btn ghost" data-node="historias">Ver Historias</button>
+        <div class="hero-text-container">
+          <h1 class="hero-title">Tocar el cielo es posible</h1>
+          <p class="hero-subtitle">Órganos y prótesis inteligentes entre lo biológico y lo sintético.</p>
+          <div class="hero-actions">
+            <button class="btn primary" data-node="tecnologia">Explorar Tecnología</button>
+            <button class="btn ghost" data-node="historias">Ver Historias</button>
+          </div>
         </div>
       </div>
     </div>
@@ -110,7 +124,7 @@
         <h2>Tecnología Avanzada</h2>
         <p class="section-intro">Líderes en biotecnología y evolución</p>
         
-        
+
         <div class="tech-grid">
           <div class="tech-item connectivity">
             <h3>Conectividad</h3>
