@@ -1,63 +1,51 @@
-// Nueva animación de intro
-const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
+// Animación de intro con logo y pulso
+const introTL = gsap.timeline();
 
-// Aparecer el logo
-tl.to(".logo", {
-    opacity: 1,
-    duration: 0.5
-})
+// Inicial: mostrar el logo y el fondo
+introTL.to(".logo-pulse", { opacity: 1, duration: 1 })
+       .to(".intro-background", { opacity: 1, duration: 1 }, "-=1")
 
-// Efecto de pulso (repetir 3 veces)
-.to(".pulse-effect", {
-    opacity: 1,
-    scale: 1,
-    duration: 0.5,
-    repeat: 3,
-    yoyo: true,
-    onStart: function() {
-        // Iniciar el efecto de pulso (shadow)
-        gsap.set(".pulse-effect", {
-            boxShadow: "0 0 0 0 rgba(255, 255, 255, 0.7)"
-        });
-    },
-    onRepeat: function() {
-        // En cada repetición, reiniciar la sombra para el pulso
-        gsap.set(".pulse-effect", {
-            boxShadow: "0 0 0 0 rgba(255, 255, 255, 0.7)"
-        });
-        gsap.to(".pulse-effect", {
-            boxShadow: "0 0 0 20px rgba(255, 255, 255, 0)",
-            duration: 0.5
-        });
-    }
+// Crear pulsos: hacemos 3 pulsos
+.to(".logo-pulse", { 
+    scale: 1.1, 
+    duration: 0.5, 
+    repeat: 3, 
+    yoyo: true 
 })
+.to(".pulse-glow", { 
+    opacity: 0.6, 
+    scale: 1.2, 
+    duration: 0.5, 
+    repeat: 3, 
+    yoyo: true 
+}, "-=1.5")
 
-// Efecto glitch rápido
-.to(".glitch", {
-    opacity: 0.4,
-    duration: 0.1
+// Pulso final más intenso
+.to(".logo-pulse", { 
+    scale: 1.5, 
+    opacity: 0, 
+    duration: 0.8 
 })
-.to(".glitch", {
-    opacity: 0,
-    duration: 0.1
-})
+.to(".pulse-glow", { 
+    scale: 2, 
+    opacity: 0, 
+    duration: 0.8 
+}, "-=0.8")
+.to(".intro-background", { 
+    opacity: 0, 
+    duration: 0.8 
+}, "-=0.8")
 
-// Desvanecer la intro
-.to("#intro", {
-    opacity: 0,
-    duration: 0.5,
+// Ocultar intro y mostrar contenido
+.to("#intro", { 
+    opacity: 0, 
+    duration: 0.5, 
     onComplete: function() {
         document.getElementById("intro").style.display = "none";
-        // Iniciar la aplicación principal
         new NeuronNavigation();
-    }
+    } 
 })
-
-// Revelar el contenido principal
-.to("#mainContent", {
-    opacity: 1,
-    duration: 0.5
-}, "-=0.3");
+.to("#mainContent", { opacity: 1, duration: 0.8 }, "-=0.3");
 class NeuronNavigation {
     constructor() {
         this.currentSection = 'hero';
