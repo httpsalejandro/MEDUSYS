@@ -36,10 +36,10 @@ class NeuronNavigation {
         
         this.nodes.forEach(node => {
             node.addEventListener('click', (e) => {
-                e.stopPropagation();
+                e.stopImmediatePropagation();
                 const targetSection = node.getAttribute('data-section');
                 this.navigateToSection(targetSection, node);
-            });
+            }, true);
         });
 
         document.querySelectorAll('[data-node]').forEach(btn => {
@@ -228,7 +228,7 @@ class NeuronNavigation {
         this.controls.forEach(control => {
             control.addEventListener('click', (e) => {
                 const action = e.target.getAttribute('data-action');
-                
+
                 switch(action) {
                     case 'rotate':
                         rotation += 45;
@@ -241,7 +241,7 @@ class NeuronNavigation {
                         scale = 1;
                         break;
                 }
-                
+
                 this.heartModel.style.transform = `rotateY(${rotation}deg) scale(${scale})`;
             });
         });
@@ -251,7 +251,7 @@ class NeuronNavigation {
             part.addEventListener('click', (e) => {
                 const partInfo = e.target.getAttribute('data-info');
                 this.showPartInfo(partInfo);
-                
+
                 // Resaltar la parte clickeada
                 this.heartParts.forEach(p => p.classList.remove('active'));
                 e.target.classList.add('active');
@@ -340,16 +340,16 @@ class NeuronNavigation {
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
         const oscillator = audioContext.createOscillator();
         const gainNode = audioContext.createGain();
-        
+
         oscillator.connect(gainNode);
         gainNode.connect(audioContext.destination);
-        
+
         oscillator.frequency.setValueAtTime(400, audioContext.currentTime);
         oscillator.frequency.exponentialRampToValueAtTime(600, audioContext.currentTime + 0.1);
-        
+
         gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
         gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-        
+
         oscillator.start();
         oscillator.stop(audioContext.currentTime + 0.3);
     }
@@ -361,7 +361,7 @@ class NeuronNavigation {
 
         this.ctx.strokeStyle = 'rgba(147, 185, 224, 0.2)';
         this.ctx.lineWidth = 1;
-        
+
         this.nodes.forEach((node1, i) => {
             const rect1 = node1.getBoundingClientRect();
             const x1 = rect1.left + rect1.width / 2;
@@ -372,18 +372,18 @@ class NeuronNavigation {
                     const rect2 = node2.getBoundingClientRect();
                     const x2 = rect2.left + rect2.width / 2;
                     const y2 = rect2.top + rect2.height / 2;
-                    
+
                     const distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
-                    
+
                     if (distance < 400) {
                         this.ctx.beginPath();
                         this.ctx.moveTo(x1, y1);
                         this.ctx.lineTo(x2, y2);
                         this.ctx.stroke();
-                        
+
                         const pulseSpeed = 0.001;
                         const pulse = (Date.now() * pulseSpeed) % distance;
-                        
+
                         this.ctx.fillStyle = 'rgba(196, 162, 252, 0.8)';
                         this.ctx.beginPath();
                         this.ctx.arc(
