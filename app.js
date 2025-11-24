@@ -1,3 +1,63 @@
+// Nueva animación de intro
+const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
+
+// Aparecer el logo
+tl.to(".logo", {
+    opacity: 1,
+    duration: 0.5
+})
+
+// Efecto de pulso (repetir 3 veces)
+.to(".pulse-effect", {
+    opacity: 1,
+    scale: 1,
+    duration: 0.5,
+    repeat: 3,
+    yoyo: true,
+    onStart: function() {
+        // Iniciar el efecto de pulso (shadow)
+        gsap.set(".pulse-effect", {
+            boxShadow: "0 0 0 0 rgba(255, 255, 255, 0.7)"
+        });
+    },
+    onRepeat: function() {
+        // En cada repetición, reiniciar la sombra para el pulso
+        gsap.set(".pulse-effect", {
+            boxShadow: "0 0 0 0 rgba(255, 255, 255, 0.7)"
+        });
+        gsap.to(".pulse-effect", {
+            boxShadow: "0 0 0 20px rgba(255, 255, 255, 0)",
+            duration: 0.5
+        });
+    }
+})
+
+// Efecto glitch rápido
+.to(".glitch", {
+    opacity: 0.4,
+    duration: 0.1
+})
+.to(".glitch", {
+    opacity: 0,
+    duration: 0.1
+})
+
+// Desvanecer la intro
+.to("#intro", {
+    opacity: 0,
+    duration: 0.5,
+    onComplete: function() {
+        document.getElementById("intro").style.display = "none";
+        // Iniciar la aplicación principal
+        new NeuronNavigation();
+    }
+})
+
+// Revelar el contenido principal
+.to("#mainContent", {
+    opacity: 1,
+    duration: 0.5
+}, "-=0.3");
 class NeuronNavigation {
     constructor() {
         this.currentSection = 'hero';
