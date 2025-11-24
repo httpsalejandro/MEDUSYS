@@ -166,12 +166,21 @@ class NeuronNavigation {
         this.isZoomed = true;
 
         document.querySelector('.neuron-main').classList.add('zoomed');
+        // ocultar control de audio cuando se abre un panel de nodo
+        if (this.audioControl) this.audioControl.classList.add('hidden');
         document.getElementById('backButton').classList.add('visible');
 
+        // limpiar clases previas
         this.nodes.forEach(node => {
-            node.classList.remove('active-node');
-            if (node.getAttribute('data-section') === sectionId) {
-                node.classList.add('active-node');
+            node.classList.remove('active-node', 'selected-node', 'dimmed');
+        });
+
+        // aplicar: solo el nodo seleccionado se marca y el resto se atenúa
+        this.nodes.forEach(node => {
+            if (node === clickedNode) {
+                node.classList.add('active-node', 'selected-node');
+            } else {
+                node.classList.add('dimmed');
             }
         });
 
@@ -185,7 +194,8 @@ class NeuronNavigation {
             }
         });
 
-        setTimeout(() => this.calculateConnections(), 500);
+        // recalcular después de reposicionar
+        setTimeout(() => this.calculateConnections(), 600);
         this.playNavigationSound();
     }
 
@@ -441,8 +451,12 @@ class NeuronNavigation {
         document.querySelector('.neuron-main').classList.remove('zoomed');
         document.getElementById('backButton').classList.remove('visible');
 
+        // mostrar control de audio de nuevo
+        if (this.audioControl) this.audioControl.classList.remove('hidden');
+
+        // eliminar clases específicas aplicadas
         this.nodes.forEach(node => {
-            node.classList.remove('active-node');
+            node.classList.remove('active-node', 'selected-node', 'dimmed');
         });
 
         this.sections.forEach(section => {
@@ -474,6 +488,7 @@ class NeuronNavigation {
     setupAudio() {
         this.audio = document.getElementById('ambientAudio');
         this.audioToggle = document.getElementById('audioToggle');
+        this.audioControl = document.querySelector('.audio-control'); // <-- referencia usada para ocultar/mostrar
         
         if (this.audio && this.audioToggle) {
             this.isAudioPlaying = false;

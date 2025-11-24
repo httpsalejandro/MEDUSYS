@@ -253,7 +253,7 @@ body {
 }
 
 .content-section.active {
-  opacity: 1;
+  opacity: 100;
   visibility: visible;
   transform: scale(1) translateZ(0);
   pointer-events: auto;
@@ -266,12 +266,12 @@ body {
   width: 100%;
   height: 100%;
   background: radial-gradient(ellipse at center, rgba(10, 10, 20, 0.9) 0%, var(--bg) 70%);
-  opacity: 0;
+  opacity: 100;
   transition: var(--transition);
 }
 
 .content-section.active .section-background {
-  opacity: 1;
+  opacity: 100;
 }
 
 .content-wrapper {
@@ -288,20 +288,47 @@ body {
 
 /* Efectos de Zoom y Transición */
 .neuron-main.zoomed .neuron-node {
-  opacity: 0.3;
-  transform: translate(-50%, -50%) scale(0.8);
+  transform: translate(-50%, -50%) scale(0.95);
   pointer-events: none;
 }
 
-.neuron-main.zoomed .neuron-node.active-node {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1.5);
-  z-index: 200;
+/* Atenuar solo los nodos que NO están seleccionados */
+.neuron-node.dimmed {
+  opacity: 0.25;
+  transition: var(--transition);
+  pointer-events: none; /* evita interacciones accidentales en nodos atenuados */
+}
+
+/* Nodo seleccionado: se fija en la esquina superior derecha y se hace más grande.
+   Solo el nodo seleccionado recibe este estilo. */
+.neuron-node.selected-node {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  left: auto !important;
+  transform: translate(0, 0) scale(1.4) !important;
+  z-index: 300;
   pointer-events: all;
 }
 
-.neuron-main.zoomed .neuron-node.active-node .node-core {
-  background: radial-gradient(circle, var(--lilac) 0%, #FF6B6B 100%);
+/* Asegurar que las etiquetas del nodo seleccionado sean visibles */
+.neuron-node.selected-node .node-label,
+.neuron-node.selected-node .node-subtitle {
+  opacity: 1;
+  transform: translateX(-50%) translateY(10px);
+}
+
+/* Ocultar control de audio cuando un panel de nodo está abierto */
+.audio-control.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-10px);
+}
+
+/* Asegurar transiciones suaves */
+.neuron-node, .neuron-node .node-label, .neuron-node .node-subtitle {
+  transition: var(--transition);
 }
 
 /* Botón de Regreso */
@@ -433,7 +460,7 @@ body {
   line-height: 1.4;
   position: relative;
 
-  margin-top: 5rem; /* Espacio entre título y subtítulo */
+  margin-top: 7rem; /* Espacio entre título y subtítulo */
 }
 
 .hero-actions {
