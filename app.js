@@ -62,7 +62,6 @@ class NeuronNavigation {
     init() {
         this.setupCanvas();
         this.setupNodes();
-        this.setupAudio();
         this.setupBackButton();
         this.setup3DModel();
         this.setupStoryInteractions();

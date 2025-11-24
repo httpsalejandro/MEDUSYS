@@ -12,6 +12,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
+  
 <div id="intro">
     <div class="intro-background"></div>
     <div class="logo-container">
@@ -19,17 +20,9 @@
         <div class="pulse-glow"></div>
     </div>
 </div>
-  <!-- Audio Ambiental -->
-  <div class="audio-control">
-    <button id="audioToggle" class="audio-btn" aria-label="Controlar audio ambiental">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 3.75v16.5m-4.5-13.5h9a2.25 2.25 0 0 1 0 4.5h-9a2.25 2.25 0 0 1 0-4.5Z"/>
-      </svg>
-    </button>
-    <audio id="ambientAudio" loop>
-      <source src="ambientazo.wav" type="audio/mpeg">
-    </audio>
-  </div>
+<audio id="transitionSound" preload="auto">
+    <source src="swish.wav" type="audio/wav">
+</audio>
 
   <!-- Navegación Principal Neuronal -->
   <main class="neuron-main">
